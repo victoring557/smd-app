@@ -1,0 +1,57 @@
+date,account,description,category,amount
+2026-01-01,checking,Rent,housing,-950.00
+2026-01-02,checking,Carrefour,groceries,-65.15
+2026-01-03,checking,Spotify,subscriptions,-11.99
+2026-01-05,checking,Netflix,subscriptions,-13.99
+2026-01-09,checking,Cabify,transport,-24.53
+2026-01-10,checking,Gym membership,health,-39.90
+2026-01-11,checking,Lidl,groceries,-86.60
+2026-01-12,checking,Cabify,transport,-24.99
+2026-01-16,checking,Mercadona,groceries,-88.69
+2026-01-18,checking,Rodilla,restaurants,-39.04
+2026-01-19,checking,Rodilla,restaurants,-20.64
+2026-01-20,checking,La Tagliatella,restaurants,-15.99
+2026-01-22,checking,Cabify,transport,-6.44
+2026-01-25,checking,Lidl,groceries,-60.24
+2026-01-27,checking,La Tagliatella,restaurants,-28.19
+2026-01-27,checking,Salary ACME Corp,income,2850.00
+2026-01-28,checking,Transfer to savings,transfer,-300.00
+2026-01-28,savings,Transfer from checking,transfer,300.00
+2026-01-28,savings,Interest,interest,1.60
+2026-02-01,checking,Rent,housing,-950.00
+2026-02-01,checking,Five Guys,restaurants,-25.09
+2026-02-03,checking,Spotify,subscriptions,-11.99
+2026-02-04,checking,Lidl,groceries,-39.58
+2026-02-05,checking,Netflix,subscriptions,-13.99
+2026-02-10,checking,Gym membership,health,-39.90
+2026-02-10,checking,Mercadona,groceries,-68.45
+2026-02-13,checking,Renfe,transport,-7.58
+2026-02-14,checking,La Tagliatella,restaurants,-26.36
+2026-02-14,checking,Renfe,transport,-23.27
+2026-02-17,checking,Carrefour,groceries,-62.45
+2026-02-17,checking,Renfe,transport,-22.07
+2026-02-19,checking,Rodilla,restaurants,-43.22
+2026-02-25,checking,Lidl,groceries,-77.98
+2026-02-27,checking,Salary ACME Corp,income,2850.00
+2026-02-28,checking,Transfer to savings,transfer,-300.00
+2026-02-28,savings,Transfer from checking,transfer,300.00
+2026-02-28,savings,Interest,interest,2.00
+2026-03-01,checking,Rent,housing,-950.00
+2026-03-03,checking,Spotify,subscriptions,-11.99
+2026-03-03,checking,Lidl,groceries,-66.08
+2026-03-05,checking,Netflix,subscriptions,-13.99
+2026-03-08,checking,La Tagliatella,restaurants,-34.56
+2026-03-09,checking,Lidl,groceries,-48.47
+2026-03-10,checking,Gym membership,health,-39.90
+2026-03-10,checking,Cabify,transport,-1.72
+2026-03-14,checking,Rodilla,restaurants,-17.13
+2026-03-15,checking,Rodilla,restaurants,-37.72
+2026-03-16,checking,Mercadona,groceries,-92.76
+2026-03-16,checking,Cabify,transport,-11.68
+2026-03-18,checking,Five Guys,restaurants,-32.15
+2026-03-18,checking,Renfe,transport,-13.29
+2026-03-25,checking,Lidl,groceries,-41.15
+2026-03-27,checking,Salary ACME Corp,income,2850.00
+2026-03-28,checking,Transfer to savings,transfer,-300.00
+2026-03-28,savings,Transfer from checking,transfer,300.00
+2026-03-28,savings,Interest,interest,2.40
