@@ -1,6 +1,6 @@
 # smd-app
 
-Personal finance ledger: balances, spending and monthly reports from a CSV file.
+Personal finance ledger for the command line: balances, spending and monthly reports from a CSV file.
 
 ## Run it
 
