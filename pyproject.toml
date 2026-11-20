@@ -9,7 +9,7 @@ dependencies = [
 ]
 
 [project.scripts]
-ledger = "ledger:main"
+ledger = "ledger.cli:main"
 
 [build-system]
 requires = ["uv_build>=0.13.7,<0.14.0"]
@@ -19,3 +19,6 @@ build-backend = "uv_build"
 dev = [
     "ruff>=0.17.4",
 ]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
