@@ -83,10 +83,10 @@ def add_transaction(
 ) -> None:
     """Records one transaction in an existing account."""
     account = find_account(session, account_name)
-    # TODO 3: check two rules before saving anything, and raise a ValueError with
-    #         a clear message when one fails:
-    #         - the account exists: find_account returned an Account, not None;
-    #         - the amount is in whole cents: it equals round(amount, 2).
+    if account is None:
+        raise ValueError(f"there is no account called {account_name!r}")
+    if amount != round(amount, 2):
+        raise ValueError(f"{amount} has more than two decimals")
     session.add(
         TransactionRow(
             date=day,
