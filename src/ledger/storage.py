@@ -1,10 +1,14 @@
-"""Reading transactions from where they are stored."""
+"""Reading and writing transactions: the CSV file and the database."""
 
 import csv
 from datetime import date
 from decimal import Decimal
 from pathlib import Path
 
+from sqlalchemy import select
+from sqlalchemy.orm import Session
+
+from ledger.db import Account, TransactionRow
 from ledger.models import Transaction
 
 
@@ -21,3 +25,75 @@ def read_csv(path: Path) -> list[Transaction]:
             )
             for row in csv.DictReader(f)
         ]
+
+
+def find_account(session: Session, name: str) -> Account | None:
+    """The account with this name, or None if there is none."""
+    return session.scalars(select(Account).where(Account.name == name)).first()
+
+
+def get_or_create_account(session: Session, name: str) -> Account:
+    account = find_account(session, name)
+    if account is None:
+        account = Account(name=name)
+        session.add(account)
+    return account
+
+
+def import_csv(session: Session, path: Path) -> int:
+    """Adds the transactions of a CSV file to the database. Returns how many."""
+    transactions = read_csv(path)
+    for t in transactions:
+        session.add(
+            TransactionRow(
+                date=t.date,
+                account=get_or_create_account(session, t.account),
+                description=t.description,
+                category=t.category,
+                amount=t.amount,
+            )
+        )
+    session.commit()
+    return len(transactions)
+
+
+def load_transactions(session: Session) -> list[Transaction]:
+    """All the transactions in the database, oldest first."""
+    query = select(TransactionRow).order_by(TransactionRow.date, TransactionRow.id)
+    rows = session.scalars(query)
+    return [
+        Transaction(
+            date=row.date,
+            account=row.account.name,
+            description=row.description,
+            category=row.category,
+            amount=row.amount,
+        )
+        for row in rows
+    ]
+
+
+def add_transaction(
+    session: Session,
+    account_name: str,
+    amount: Decimal,
+    category: str,
+    description: str,
+    day: date,
+) -> None:
+    """Records one transaction in an existing account."""
+    account = find_account(session, account_name)
+    # TODO 3: check two rules before saving anything, and raise a ValueError with
+    #         a clear message when one fails:
+    #         - the account exists: find_account returned an Account, not None;
+    #         - the amount is in whole cents: it equals round(amount, 2).
+    session.add(
+        TransactionRow(
+            date=day,
+            account=account,
+            description=description,
+            category=category,
+            amount=amount,
+        )
+    )
+    session.commit()
